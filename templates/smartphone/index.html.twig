@@ -3,14 +3,21 @@
 {% block title %}Smartphone index{% endblock %}
 
 {% block body %}
-    <h1>Smartphone index</h1>
+    <h1>filtrer Smartphones</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.etat) }}
+    {{ form_row(form.stockage) }}
+    {{ form_row(form.ram) }}
+    {{ form_row(form.reseau) }}
+    {{ form_row(form.filtrer) }}
+    {{ form_end(form) }}
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Marque</th>
                 <th>Etat</th>
                 <th>Systeme</th>
                 <th>Stockage</th>
@@ -27,7 +34,6 @@
             <tr>
                 <td>{{ smartphone.id }}</td>
                 <td>{{ smartphone.name }}</td>
-                <td>{{ smartphone.marque }}</td>
                 <td>{{ smartphone.etat }}</td>
                 <td>{{ smartphone.systeme }}</td>
                 <td>{{ smartphone.stockage }}</td>
@@ -51,3 +57,4 @@
 
     <a href="{{ path('app_smartphone_new') }}">Create new</a>
 {% endblock %}
+

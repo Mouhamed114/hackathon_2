@@ -17,9 +17,6 @@ class Smartphone
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $marque = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $etat = null;
 
     #[ORM\Column(length: 255)]
@@ -43,6 +40,10 @@ class Smartphone
     #[ORM\Column(length: 255)]
     private ?string $prix = null;
 
+    #[ORM\ManyToOne(inversedBy: 'smartphone')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Mark $mark = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -56,18 +57,6 @@ class Smartphone
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
 
         return $this;
     }
@@ -164,6 +153,18 @@ class Smartphone
     public function setPrix(string $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getMark(): ?Mark
+    {
+        return $this->mark;
+    }
+
+    public function setMark(?Mark $mark): self
+    {
+        $this->mark = $mark;
 
         return $this;
     }

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	<header>
+		{% include "home/navbar.html.twig" %}
+	</header>
+	<h4 style="text-align: center;">Filter Smartphones</h4>
+    {{ form_start(form) }}
+    {{ form_row(form.etat) }}
+    {{ form_row(form.stockage) }}
+    {{ form_row(form.ram) }}
+    {{ form_row(form.reseau) }}
+    {{ form_row(form.filtrer) }}
+    {{ form_end(form) }}
+	<div class="container-fluid">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+			{% for smartphone in smartphones %}
+				<div class="d-flex flex-column s">
+					<div class="card align-self-center m-2 shadow" style="width: 18rem;">
+						<img src={{ smartphone.photo }} class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{ smartphone.name }}</h5>
+							<p class="card-text">
+								<strong>État:</strong>
+								{{ smartphone.etat }}<br>
+								<strong>Système:</strong>
+								{{ smartphone.systeme }}<br>
+								<strong>Stockage:</strong>
+								{{ smartphone.stockage }}<br>
+								<strong>RAM:</strong>
+								{{ smartphone.ram }}<br>
+								<strong>Taille d'écran:</strong>
+								{{ smartphone.tailleEcran }}<br>
+								<strong>Réseau:</strong>
+								{{ smartphone.reseau }}<br>
+								<strong>Prix:</strong>
+								{{ smartphone.prix }}<br>
+							</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% include "home/footer.html.twig" %}
+{% endblock %}

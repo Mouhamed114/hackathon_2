@@ -1,0 +1,33 @@
+.image-hover {
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-hover:hover {
+    transform: scale(1.05);
+}
+
+.header {
+    height: 50vh; /* Utilise la hauteur totale de la fenêtre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .header-image {
+    background-image: url('/assets/images/zflip.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 1024px) {
+    .carousel-item {
+        height: 700px;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-search {
+        width: 50%;
+    }
+}

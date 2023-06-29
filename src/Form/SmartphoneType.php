@@ -28,8 +28,6 @@ class SmartphoneType extends AbstractType
                 'Iphone' => 'iphone',
                 'Huawei' => 'huawei',
                 'Xiaomi' => 'xiaomi',
-
-
             ],
         ])
         ->add('etat', ChoiceType::class, [
@@ -41,23 +39,9 @@ class SmartphoneType extends AbstractType
                 'BLOQUE' => 'BLOQUE',
                 'RECONDITIONNE' => 'RECONDITIONNE',
                 'RECONDITIONABLE	' => 'RECONDITIONABLE'
-                
-
-
-
-                
+                   
             ],
             
-        ])
-        ->add('systeme', ChoiceType::class, [
-            'label' => 'Système d\'exploitation',
-            'choices' => [
-                'Android' => 'android',
-                'IOS' => 'IOS',
-                'Windows 10 Mobile ' => 'Windows 10 Mobile ',
-                'BlackBerry OS' => 'BlackBerry OS'
-
-            ],
         ])
         ->add('stockage', ChoiceType::class, [
             'label' => 'Capacité de stockage (Go)',
@@ -78,7 +62,6 @@ class SmartphoneType extends AbstractType
                 '16 Go' => '16 Go',
                 '32 Go' => '32 Go',
 
-
             ],
         ])
         ->add('taille_ecran', ChoiceType::class, [
@@ -87,7 +70,6 @@ class SmartphoneType extends AbstractType
                 "3,5'' " => "3,5'' ",
                 "4'' " => "4'' ",
                 "5'' " => "5'' ",
-
                 "6'' " => "6'' ",
                 "7'' " => "7'' ",
 
