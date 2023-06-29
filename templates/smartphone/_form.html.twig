@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+
+
+
+{{ form_start(form, {'attr': {'class': 'formContact card-body row row-cols-2'}}) }}
+    {# {{ form_widget(form) }} #}
 <div class="form-group">
 	{{ form_label(form.name, 'Nom', {'label_attr': {'class': 'control-label'}}) }}
 	{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -53,6 +59,10 @@
 	{{ form_label(form.etat, 'Etat', {'label_attr': {'class': 'control-label'}}) }}
 	{{ form_widget(form.etat, {'attr': {'class': 'form-select'}}) }}
 	{{ form_errors(form.etat, {'attr': {'class': 'text-danger'}}) }}
-</div>
+</div> 	
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+
+{{ form_end(form) }}
 
 {% endblock %}
