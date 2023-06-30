@@ -1,60 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Smartphone index{% endblock %}
-
-{% block body %}
-    <h1>filtrer Smartphones</h1>
-
-    {{ form_start(form) }}
-    {{ form_row(form.etat) }}
-    {{ form_row(form.stockage) }}
-    {{ form_row(form.ram) }}
-    {{ form_row(form.reseau) }}
-    {{ form_row(form.filtrer) }}
-    {{ form_end(form) }}
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Etat</th>
-                <th>Systeme</th>
-                <th>Stockage</th>
-                <th>Ram</th>
-                <th>Taille_ecran</th>
-                <th>Reseau</th>
-                <th>Photo</th>
-                <th>Prix</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for smartphone in smartphones %}
-            <tr>
-                <td>{{ smartphone.id }}</td>
-                <td>{{ smartphone.name }}</td>
-                <td>{{ smartphone.etat }}</td>
-                <td>{{ smartphone.systeme }}</td>
-                <td>{{ smartphone.stockage }}</td>
-                <td>{{ smartphone.ram }}</td>
-                <td>{{ smartphone.tailleEcran }}</td>
-                <td>{{ smartphone.reseau }}</td>
-                <td>{{ smartphone.photo }}</td>
-                <td>{{ smartphone.prix }}</td>
-                <td>
-                    <a href="{{ path('app_smartphone_show', {'id': smartphone.id}) }}">show</a>
-                    <a href="{{ path('app_smartphone_edit', {'id': smartphone.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_smartphone_new') }}">Create new</a>
+{% block title %}Smartphone index
 {% endblock %}
 
+{% block body %}
+
+	<div class="container">
+		<h1 class="text-center mb-5">Smartphones</h1>
+		<div class="row justify-content-center">
+			<div class="card card-index col-md-2">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Marque</th>
+							<th>Etat</th>
+							<th>Systeme</th>
+							<th>Stockage</th>
+							<th>Ram</th>
+							<th>Ecran</th>
+							<th>Reseau</th>
+							<th>Photo</th>
+							<th>Prix</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for smartphone in smartphones %}
+							<tr>
+								<td>{{ smartphone.name }}</td>
+								<td>{{ smartphone.mark.name }}</td>
+								<td>{{ smartphone.etat }}</td>
+								<td>{{ smartphone.systeme }}</td>
+								<td>{{ smartphone.stockage }}</td>
+								<td>{{ smartphone.ram }}</td>
+								<td>{{ smartphone.tailleEcran }}</td>
+								<td>{{ smartphone.reseau }}</td>
+								<td><img src={{ smartphone.photo }} style="width: 80px; height: auto;"></td>
+								<td>{{ smartphone.prix }}</td>
+								<td>
+									<a class="btn btn-primary m-1" href="{{ path('app_smartphone_show', {'id': smartphone.id}) }}">show</a>
+									<a class="btn btn-primary m-1" href="{{ path('app_smartphone_edit', {'id': smartphone.id}) }}">edit</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="12">No records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+                    
+				</table>
+                <a class="btn btn-primary" href="{{ path('app_smartphone_new') }}">Create new</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
