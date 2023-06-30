@@ -39,6 +39,33 @@ class SmartphoneRepository extends ServiceEntityRepository
         }
     }
 
+    public function filter($criteria)
+{
+    $qb = $this->createQueryBuilder('s');
+
+    if (!empty($criteria['etat'])) {
+        $qb->andWhere('s.etat = :etat')
+            ->setParameter('etat', $criteria['etat']);
+    }
+    
+    if (!empty($criteria['stockage'])) {
+        $qb->andWhere('s.stockage = :stockage')
+            ->setParameter('stockage', $criteria['stockage']);
+    }
+    
+    if (!empty($criteria['ram'])) {
+        $qb->andWhere('s.ram = :ram')
+            ->setParameter('ram', $criteria['ram']);
+    }
+    
+    if (!empty($criteria['reseau'])) {
+        $qb->andWhere('s.reseau = :reseau')
+            ->setParameter('reseau', $criteria['reseau']);
+    }
+
+    return $qb->getQuery()->getResult();
+}
+
 //    /**
 //     * @return Smartphone[] Returns an array of Smartphone objects
 //     */

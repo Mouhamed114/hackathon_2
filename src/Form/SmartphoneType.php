@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Mark;
 use App\Entity\Smartphone;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -21,16 +23,9 @@ class SmartphoneType extends AbstractType
         ->add('name', TextType::class, [
             'label' => 'Nom'
         ])
-        ->add('marque', ChoiceType::class, [
-            'label' => 'Marque',
-            'choices' => [
-                'Samsung' => 'samsung',
-                'Iphone' => 'iphone',
-                'Huawei' => 'huawei',
-                'Xiaomi' => 'xiaomi',
-
-
-            ],
+        ->add('mark', EntityType::class, [
+            'class' => Mark::class,
+            'choice_label' => 'name', 
         ])
         ->add('etat', ChoiceType::class, [
             'label' => 'État',
@@ -41,8 +36,12 @@ class SmartphoneType extends AbstractType
                 'BLOQUE' => 'BLOQUE',
                 'RECONDITIONNE' => 'RECONDITIONNE',
                 'RECONDITIONABLE	' => 'RECONDITIONABLE'
+
             
                 
+
+                   
+
             ],
             
         ])
@@ -75,7 +74,6 @@ class SmartphoneType extends AbstractType
                 '16 Go' => '16 Go',
                 '32 Go' => '32 Go',
 
-
             ],
         ])
         ->add('taille_ecran', ChoiceType::class, [
@@ -84,7 +82,6 @@ class SmartphoneType extends AbstractType
                 "3,5'' " => "3,5'' ",
                 "4'' " => "4'' ",
                 "5'' " => "5'' ",
-
                 "6'' " => "6'' ",
                 "7'' " => "7'' ",
 

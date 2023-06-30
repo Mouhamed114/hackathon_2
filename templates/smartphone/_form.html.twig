@@ -5,18 +5,20 @@
 
 
 
+
 {{ form_start(form, {'attr': {'class': 'formContact card-body row row-cols-2'}}) }}
-    {# {{ form_widget(form) }} #}
-<div class="form-group">
+
+<div class="form-group ">
+
 	{{ form_label(form.name, 'Nom', {'label_attr': {'class': 'control-label'}}) }}
 	{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
 	{{ form_errors(form.name, {'attr': {'class': 'text-danger'}}) }}
 </div>
 
 <div class="form-group">
-	{{ form_label(form.marque, 'Marque', {'label_attr': {'class': 'control-label'}}) }}
-	{{ form_widget(form.marque, {'attr': {'class': 'form-select'}}) }}
-	{{ form_errors(form.marque, {'attr': {'class': 'text-danger'}}) }}
+	{{ form_label(form.mark, 'Marque', {'label_attr': {'class': 'control-label'}}) }}
+	{{ form_widget(form.mark, {'attr': {'class': 'form-select'}}) }}
+	{{ form_errors(form.mark, {'attr': {'class': 'text-danger'}}) }}
 </div>
 
 <div class="form-group">
@@ -44,7 +46,7 @@
 </div>
 
 <div class="form-group">
-	{{ form_label(form.systeme, 'Système', {'label_attr': {'class': 'control-label'}}) }}
+	{{ form_label(form.systeme, 'Systeme', {'label_attr': {'class': 'control-label'}}) }}
     {{ form_widget(form.systeme, {'attr': {'class': 'form-select'}}) }}
     {{ form_errors(form.systeme, {'attr': {'class': 'text-danger'}}) }}
 </div>
