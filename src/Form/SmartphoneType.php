@@ -36,7 +36,12 @@ class SmartphoneType extends AbstractType
                 'BLOQUE' => 'BLOQUE',
                 'RECONDITIONNE' => 'RECONDITIONNE',
                 'RECONDITIONABLE	' => 'RECONDITIONABLE'
+
+            
+                
+
                    
+
             ],
             
         ])
